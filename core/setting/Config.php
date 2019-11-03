@@ -24,4 +24,4 @@ class Config
 
 }
 
-//Router::connect('post/view/');
+include 'web.php';

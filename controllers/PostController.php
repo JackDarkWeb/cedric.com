@@ -7,37 +7,64 @@ class PostController extends Controller
 
         $post = new Post();
         $posts = $post->findAll();
+        //dd($posts);
 
-        $this->render('posts.index',[
+        $this->view('posts.index',[
             'posts' => $posts,
         ]);
     }
 
-    function read($id = null){
+    function read($id = null, $slug = null){
 
-        //var_dump($id);
+        $post = new Post();
 
-        if($id === null){
+        if($slug == null || $id == null){
 
-            $post = new Post();
             $posts = $post->findAll();
-
-            $this->render('posts.index',[
+            $this->view('home.welcome',[
                 'posts' => $posts,
             ]);
+        }
 
-        }else{
+        $posts = $post->find(['id', '=', $id]);
 
-            $post = new Post();
-            $postId = $post->find(['id', '=', $id]);
+        if(!isset($posts)){
+            $this->e404("Product  not found");
+        }
 
-            if(!isset($postId)){
-                $this->e404("Product $id not found");
+        if($slug !== $posts->slug){
+
+            //dd($posts->slug);die();
+            $this->redirect('post/read', ['id' => $id, 'slug' => $posts->slug], 301);
+        }
+
+        $this->view('posts.show',[
+            'post' => $posts,
+        ]);
+    }
+
+    function create(){
+        $this->view('posts.create');
+    }
+
+    function store(){
+
+        if($_POST['ajax'] == true || isset($_POST['submit'])) {
+
+            $err = [];
+            $name = $this->text('name');
+
+            if ($this->success() === true) {
+
+                $this->flash['message'] = 'Success';
+            } else {
+
+                $this->flash["message"] = $this->error('name');
             }
 
-            $this->render('posts.show',[
-                'post' => $postId,
-            ]);
+            echo json_encode($this->flash);
+            die();
         }
+        //$this->view('posts.create');
     }
 }

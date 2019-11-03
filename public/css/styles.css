@@ -1,7 +1,281 @@
 body{
-    background: #000000;
-    color: aliceblue;
+
 }
-.welcome{
-    color: deepskyblue;
+
+@media(max-width: 768px) {
+    .navbar-brand h1{
+        font-size: 27px;
+    }
+
+    .nav2{
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+}
+
+.nav1{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color: #000;
+}
+
+.nav2 .nav-link{
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+.home-section{
+    height: 100vh;
+    background-image: url(/public/images/images78547.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home-section video{
+    position: absolute;
+    height: 100vh;
+    min-width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.home-section .content-hero{
+    position: absolute;
+    height: 100vh;
+    min-width: 100%;
+    background-color: rgba(0,0,0,0.6);
+    top: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.home-section h1{
+    font-size: 100px;
+    color: #fff;
+    margin-top: 180px;
+}
+
+.section-about{
+    color: #333;
+}
+
+.testimony-section {
+    background-image: url(/public/images/shakespeare_time_title_motivation_85147_1920x1080.jpg);
+    background-repeat: no-repeat;
+    color: #fff;
+    background-size: cover;
+}
+
+.testimony-section .content{
+
+}
+
+@media(max-width: 576px) {
+    .section-about img{
+        height: 200px;
+        width: 100%;
+    }
+
+    .section-about h1{
+        font-size: 25px;
+    }
+}
+
+.section-overlay .box1{
+    background-image: url(/public/images/IMG-20181212-WA0100.jpg);
+    background-repeat: no-repeat;
+    height: 300px;
+    background-size: cover;
+}
+
+.section-overlay .box2{
+    background-image: url(/public/images/IMG-20181212-WA0094.jpg);
+    background-repeat: no-repeat;
+    height: 300px;
+    background-size: cover;
+}
+
+.section-overlay .box3{
+    background-image: url(/public/images/IMG-20181225-WA0024.jpg);
+    background-repeat: no-repeat;
+    height: 300px;
+    background-size: cover;
+}
+
+.section-overlay .box1 h2,
+.section-overlay .box2 h2,
+.section-overlay .box3 h2{
+    margin-top: 120px;
+    color: #fff;
+    font-weight: bold;
+}
+
+@media(min-width: 767.99px) and (max-width: 992px) {
+    .home-section h1{
+        font-size: 60px;
+        margin-top: 150px;
+    }
+
+    .home-section,
+    .home-section .content-hero,
+    .home-section video{
+        height: 80vh;
+    }
+}
+
+
+@media(max-width: 768px) {
+    .nav2 .navbar-toggler{
+        padding: 5px;
+    }
+
+    .home-section{
+        background-image: url(/public/images/images78547.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .home-section h1{
+        font-size: 30px;
+        margin-top: 200px;
+    }
+
+    .home-section, .home-section .content-hero{
+        height: 400px;
+    }
+}
+
+footer{
+    background-color:  #262626;
+}
+
+footer a{
+    color: #fff;
+}
+
+footer .a{
+    font-size: 20px;
+}
+
+footer a:hover,footer .a:hover{
+    color: #00ace6;
+}
+
+.contact-us-section{
+    background-image: url(/public/images/teleconseilliere_0.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.a-propos-section .img-bg{
+    background-image: url(/public/images/relationclientnewimahe.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.a-propos-section .img-bg h1{
+    background-color: rgba(0,0,0,0.6);
+    padding: 100px 0px 100px 0px;
+}
+
+@media (max-width: 768px) {
+    .a-propos-section .img-bg h1{
+        font-size: 30px;
+        padding: 70px 0px 70px 0px;
+    }
+}
+
+.coaching-section,
+.boutique-section,
+.event-section,
+.formation-section
+{
+    padding-top: 120px;
+}
+
+.coaching-section .img-bgd{
+    background-image: url(/public/images/find_your_purpose_1200x627.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.coaching-section .img-bgd h1,
+.formation-section .img-bg .home,
+.event-section .img-bg h1,
+.boutique-section .img-bg h1{
+    background-color: rgba(0,0,0,0.8);
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+.formation-section .img-bg{
+    background-image: url(/public/images/centreconsulaire.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.event-section .img-bg{
+    background-image: url(/public/images/9RdVGN.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.boutique-section .img-bg{
+    background-image: url(../images/index.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .coaching-section .img-bgd h1,
+    .formation-section .img-bg h1,
+    .event-section .img-bg h1,
+    .boutique-section .img-bg h1{
+        font-size: 30px;
+        padding: 80px 0px 80px 0px;
+    }
+
+    .coaching-section,
+    .boutique-section,
+    .event-section,
+    .formation-section
+    {
+        padding-top: 70px;
+    }
+}
+
+/**----------------------------mon espace-----------------------------------**/
+.mon-espac-section .nav .nav-link{
+    color: #eee;
+}
+
+.mon-espac-section .nav .nav-link .d-none{
+    font-size: 20px;
+}
+
+.mon-espac-section .nav .nav-link i{
+    color: #789;
+}
+
+.mon-espac-section .nav .nav-link:hover{
+    background-color: #333;
 }

@@ -8,7 +8,7 @@ class Config
     static $databases = [
         'dev' => [
             'host' => '127.0.0.1',
-            'dbname' => 'site',
+            'dbname' => 'cedric@blog',
             'user' => 'root',
             'password' => ''
         ],

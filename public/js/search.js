@@ -2,46 +2,50 @@ $(function(){
 
     $('#search').on('keyup', function () {
 
-        var search = $(this).val();
+        let search = $(this).val();
+        const ajax = true;
 
         $.ajax({
-            url: 'search.php',
+            url: '/home/search',
             type: 'POST',
             async: true,
-            data: {search:search},
+            data: {search:search, ajax:ajax},
             success: function (data) {
 
-                if(data != ''){
+                if(data !== ''){
 
-                    $('.result').html(data).show();
+                    $('#search-section > ul').html(data).show();
                     $('.data').hide();
 
-                    $('.result').find('a').on({
+                    $('#search-section').find('a').on({
 
                         mouseenter: function(){
                             $(this).css({
                                 backgroundColor: 'rgba(220,220,220, 0.6)',
                                 cursor: 'pointer',
-                                width: '350px'
+                                width: '226px'
                             });
                         },
                         mouseleave: function () {
                             $(this).css('background-color', 'white')
                         },
                         click: function (event) {
+
                             event.preventDefault();
+
                             $('#search').val($(this).text()).focus();
                             id = $(this).attr('href');
-                            $('.result').html(data).hide();
+                            $('#search-section > ul').html(data).hide();
 
-                            $.ajax({
+
+                            /*$.ajax({
                                 url: 'data.php',
                                 type: 'POST',
                                 async: true,
                                 data: {id:id},
                                 success: function (data) {
 
-                                    if(data != ''){
+                                    if(data !== ''){
 
                                         $('.data').html(data).show();
 
@@ -51,7 +55,7 @@ $(function(){
 
                                     }
                                 }
-                            });
+                            });*/
                         }
                     });
 

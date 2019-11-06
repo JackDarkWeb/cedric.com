@@ -80,8 +80,12 @@
             </li>
           </ul>
 
-          <form class="form-inline my-2 my-lg-0">
+          <form class="form-inline my-2 my-lg-0" id="search-section">
             <input class="form-control" type="search" id="search" placeholder="Taper votre recherche" aria-label="Search">
+
+              <ul class='col-12 list-unstyled mt-5 bg-white' style="display: none">
+
+              </ul>
             
           </form>
 

@@ -29,5 +29,6 @@
 
     <?= isset($yield) ? $yield : ''; ?>
 
+<script src="<?=assets('js.search')?>"></script>
 </body>
 </html>

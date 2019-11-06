@@ -279,3 +279,19 @@ footer a:hover,footer .a:hover{
 .mon-espac-section .nav .nav-link:hover{
     background-color: #333;
 }
+
+
+#search-section ul{
+    position: absolute;
+    z-index: 100;
+    margin-bottom: -141px;
+    width: 226px;
+}
+#search-section ul li{
+    padding: 7px;
+}
+
+search-section ul li:hover{
+    cursor: pointer;
+    background-color: rgb(216, 228, 240);
+}

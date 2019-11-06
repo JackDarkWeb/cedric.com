@@ -127,6 +127,36 @@ abstract class Model extends Db
         return false;
     }
 
+    /**
+     * @param array $fields
+     * @return bool
+     */
+    function insert($fields = []){
+
+        $keys   = array_keys($fields);
+        $values = '';
+        $x      = 1;
+
+        foreach ($fields as $field){
+
+            $values .=  '?';
+
+            if($x < count($fields)){
+
+                $values .= ', ';
+            }
+            $x++;
+        }
+
+        $sql  = "INSERT INTO {$this->table}(`".implode('`,`', $keys)."`) VALUES({$values})";
+        //return $fields; die(1);
+        if(!$this->query($sql, $fields)->error()){
+
+            return true;
+        }
+
+        return false;
+    }
 
     /**
      * @param $action

@@ -104,7 +104,8 @@ $(function(){
     });
 
 
-    $(document).on('submit', '#formSubmit', function () {
+    /*$(document).on('submit', '#formSubmit', function () {
+
         var form = $(this);
         var first_name =  form.find('#first_name').val();
         var email = form.find('#email').val();
@@ -133,37 +134,8 @@ $(function(){
 
         }else{
 
-            $.ajax({
-                url: 'Utils/insertWithAjax.php',
-                type: 'POST',
-                dataType: 'json',
-                data:$(this).serialize(),
-                async :true,
-                cache: false,
-                beforeSend: function () {
-                    //$('.process').html('En cours de traitement ....').show();
-                },
-                success: function (data) {
-
-                   if(data.errors){
-
-                       $('#danger').html(data.errors).show();
-                       $('.alert-info').hide();
-
-                    }else if(data.success){
-
-                       window.location.href = 'mon-espace.php';
-
-                       //$('.alert-info').html(data.success).show();
-                       //$('.alert-danger').hide();
-                       //$('#first_name').add(' #email, #password, #last_name').val('');
-                   }
-
-                }
-
-            });
-            return false;
+            return true;
         }
-    });
+    });*/
     //alert('test');
 });

@@ -1,6 +1,6 @@
 $(function(){
 
-    var error_email = false;
+    let error_email = false;
 
     function alertMessage(id, errorClass, text) {
 
@@ -9,8 +9,8 @@ $(function(){
 
     $(document).on('keyup', '#email', function () {
 
-        var email = $(this).val();
-        var filter = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        let email = $(this).val();
+        let filter = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
         if(email === ''){
 
@@ -51,8 +51,8 @@ $(function(){
     });
 
     $(document).on('submit', '#reset-password', function(){
-        var form = $(this);
-        var email = form.find('#email').val();
+        let form = $(this);
+        let email = form.find('#email').val();
 
         if(error_email === false){
 

@@ -151,12 +151,15 @@ $(function(){
     $(document).on('submit', '#formContact', function (e) {
         e.preventDefault();
 
-        var form = $(this);
-        var email = form.find('#email').val();
-        var confirm_email = form.find('#confirm-email').val();
-        var last_name = form.find('#last_name').val();
-        var first_name = form.find('#first_name').val();
-        var message = form.find('#message').val();
+        let form = $(this),
+            email         = form.find('#email').val(),
+            confirm_email = form.find('#confirm-email').val(),
+            last_name     = form.find('#last_name').val(),
+            first_name    = form.find('#first_name').val(),
+            message       = form.find('#message').val(),
+            company      = form.find('#compagny').val();
+
+        let ajax = true;
 
 
         if (error_email === false || error_first_name === false || error_last_name === false || error_message === false || error_confirm_email === false) {
@@ -182,33 +185,29 @@ $(function(){
             return false;
 
         }else{
+
             $.ajax({
-                url: 'Utils/sendEmail.php',
-                type: 'POST',
-                dataType: 'json',
-                data:$(this).serialize(),
-                async :true,
-                cache: false,
-                beforeSend: function () {
-                    //$('.process').html('En cours de traitement ....').show();
-                },
-                success: function (data) {
+                url:'/contact',
+                method:'POST',
+                dataType:'json',
+                async: true,
+                cache:false,
+                data:{first_name:first_name,last_name:last_name,message:message,email:email,company:company,ajax:ajax},
+                success:function (response) {
 
-                    if(data.message){
+                    if(response.error === false){
 
-                        alert(data.message);
+                        $('.result').html(response.message);
 
-                        $('#first_name').add('#email, #last_name, #company, #confirm-email, #message').val('');
-
-                        //$('.alert-info').html(data.success).show();
-                        //$('.alert-danger').hide();
-                    }else if(data.errors){
-
-                        alert(data.errors);
+                    }else{
+                        $('.result').html(response.message);
+                        $('#formContact').find('#last-name, #message, #email, #company, #first-name').val('');
                     }
-
-                }
-
+                },
+                error: function (resp, status, error) {
+                    $('.result').html(error);
+                    //console.log(resp);
+                },
             });
             return false;
         }

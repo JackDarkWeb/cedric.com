@@ -11,7 +11,7 @@
         <div class="result"></div>
         <?= ($this->message_flash('message')) ? $this->message_flash('message') : ''?>
 
-        <form class="" action="" method="post" id="formSingi">
+        <form class="" action="" method="post" id="formSingin">
             <div class="form-group row">
                 <label for="email">Email</label>
                 <input type="email" name="email" class="form-control" id="email" placeholder="Entez votre email" value="<?= $this->post('email')?>">

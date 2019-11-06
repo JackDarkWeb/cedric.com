@@ -30,6 +30,18 @@ class UserController extends Controller
 
                         if($password === $user->password){
 
+                            session_start();
+                            $_SESSION['email']    = $email;
+                            $_SESSION['first_name'] = $user->first;
+                            $_SESSION['last_name'] = $user->last;
+
+                            if($_POST['ajax'] === 'true'){
+
+                                $this->flash['success'] = true;
+
+                            }else
+                                header('Location:/user/dashboard');
+
 
                         }else{
                             $this->flash['password'] = "Password incorrect";
@@ -65,8 +77,73 @@ class UserController extends Controller
     }
 
 
+    function dashboard(){
+
+        session_start();
+
+
+
+        if(isset($_SESSION['email']) && isset($_SESSION['first_name'])){
+
+            $messages = ModelJson::findAll();
+            $count    = ModelJson::count();
+
+
+            //dd($all_messages);
+            return $this->view('pages.dashboard',[
+                'messages' => $messages,
+                'count'    => $count,
+            ]);
+        }else
+            header('Location:/user/singIn');
+
+        die();
+    }
+
+
 
     function register(){
+
+        if(isset($_POST['submit'])){
+
+            $first    = $this->text('first_name');
+            $last     = $this->text('last_name');
+            $email    = $this->email('email');
+            $password = $this->password('password');
+            $confirm  = $this->password_confirm('password', 'confirm_password');
+            $created_at = time();
+
+            if($this->success() == true){
+
+                $user = new User();
+                $firstOrFail = $user->find(['email', '=', $email]);
+
+                if(count($firstOrFail) === 0){
+
+                    $insert = $user->insert([
+                        'first' => $first,
+                        'last'  => $last,
+                        'email' => $email,
+                        'password' => $password,
+                        'created_at' => $created_at
+                    ]);
+
+                    if($insert == true){
+
+                        $this->flash['message'] = "<div class='alert alert-success text-center'>Enregistre !</div>";
+
+                    }else{
+
+                        $this->flash['message'] = "<div class='alert alert-danger text-center'>Reessayer plus tard </div>";
+                    }
+
+                }else{
+
+                    $this->flash['message'] = "<div class='alert alert-danger text-center'>Votre email existe deja</div>";;
+                }
+
+            }
+        }
 
         return $this->view('pages.register');
     }
@@ -74,5 +151,11 @@ class UserController extends Controller
     function forget_password(){
 
         return $this->view('pages.password');
+    }
+
+
+    function logout(){
+
+        return $this->view('pages.logout');
     }
 }

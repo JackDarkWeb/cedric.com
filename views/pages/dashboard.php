@@ -1,4 +1,4 @@
-<? if(Session::check('name') == true):?>
+
 
 <?$title_for_site = 'Mon espace'?>
 
@@ -40,7 +40,7 @@
                         <a class="nav-link text-white font-weight-bold rounded" style="background-color: #00ace6;" href="">Mon espace</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/logout" class="nav-link sing-out"><i class="fa fa-sign-out" style="font-size: 25px;" aria-hidden="true"></i></a>
+                        <a href="/user/logout" class="nav-link sing-out"><i class="fa fa-sign-out" style="font-size: 25px;" aria-hidden="true"></i></a>
                     </li>
                 </ul>
             </div>
@@ -125,6 +125,3 @@
   <script src="<?=assets('js.logout')?>"></script>
   <?=ExtendsView::extend('footer')?>
 
-
-
-<?endif;?>

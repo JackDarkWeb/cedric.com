@@ -12,20 +12,24 @@
                                 Nous sommes là pour vous aider !</h4></div>
                         <p class="row">Soumettez ce formulaire pour rejoindre notre équipe. Vous recevrez une réponse le prochain jour ouvrable.</p>
 
+
+                        <div class="result"></div>
+                        <?= ($this->message_flash('message')) ? $this->message_flash('message') : ''?>
+
                         <form class="row" action="" method="post" id="formContact">
                             <div class="form-group col-12">
                                 <label class="font-weight-bold row">Votre nom *</label>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <input type="text" name="first_name" class="form-control" id="first_name" placeholder="Entez votre prénom">
-                                            <span class="error-first_name" style="color: red; font-style: italic; display: none"></span>
+                                            <input type="text" name="first_name" class="form-control" id="first_name" value="<?= $this->post('first_name')?>" placeholder="Entez votre prénom">
+                                            <span class="error-first_name" style="color: red; font-style: italic;"><?=$this->error('first_name')?></span>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mt-3 mt-md-0">
                                         <div class="row">
-                                            <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Entez votre nom">
-                                            <span class="error-last_name" style="color: red; font-style: italic; display: none"></span>
+                                            <input type="text" name="last_name" class="form-control" id="last_name" value="<?= $this->post('last_name')?>" placeholder="Entez votre nom">
+                                            <span class="error-last_name" style="color: red; font-style: italic;"><?=$this->error('last_name')?></span>
 
                                         </div>
                                     </div>
@@ -35,8 +39,8 @@
                             <div class="form-group col-12">
                                 <div class="row">
                                     <label for="entreprise" class="font-weight-bold">Votre entreprise</label>
-                                    <input type="text" name="company" class="form-control" id="company" placeholder="Votre entreprise">
-                                    <span class="error-company" style="color: red; font-style: italic; display: none"></span>
+                                    <input type="text" name="company" class="form-control" id="company" value="<?= $this->post('company')?>" placeholder="Votre entreprise">
+                                    <span class="error-company" style="color: red; font-style: italic;"><?=$this->error('company')?></span>
                                 </div>
                             </div>
 
@@ -45,15 +49,15 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <input type="email" name="email" class="form-control" id="email" placeholder="Saisissez un e-mail">
-                                            <span class="error-email" style="color: red; font-style: italic; display: none"></span>
+                                            <input type="email" name="email" class="form-control" id="email" value="<?= $this->post('email')?>" placeholder="Saisissez un e-mail">
+                                            <span class="error-email" style="color: red; font-style: italic;"><?=$this->error('email')?></span>
 
                                         </div>
                                     </div>
                                     <div class="col-md-6 mt-3 mt-md-0">
                                         <div class="row">
-                                            <input type="email" name="confirm_email" class="form-control" id="confirm-email" placeholder="Confirmez l’e-mail">
-                                            <span class="error-confirm_email" style="color: red; font-style: italic; display: none"></span>
+                                            <input type="email" name="confirm_email" class="form-control" id="confirm-email" value="<?= $this->post('confirm_email')?>" placeholder="Confirmez l’e-mail">
+                                            <span class="error-confirm_email" style="color: red; font-style: italic;"><?=$this->error('confirm_email')?></span>
                                         </div>
                                     </div>
                                 </div>
@@ -61,14 +65,14 @@
                             <div class="form-group col-12">
                                 <div class="row">
                                     <label for="message" class="font-weight-bold">Votre message *</label>
-                                    <textarea class="form-control" id="message" name="message" rows="3"></textarea>
-                                    <span class="error-message" style="color: red; font-style: italic; display: none"></span>
+                                    <textarea class="form-control" id="message" name="message" rows="3" style="<?= ($this->error('message')) ? "border-color : red" : ''?>"></textarea>
+                                    <span class="error-message" style="color: red; font-style: italic;"></span>
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="row">
-                                    <button type="submit" class="btn btn-primary w-100">Envoyer</button>
+                                    <button type="submit" name="submit" class="btn btn-primary w-100">Envoyer</button>
                                 </div>
                             </div>
                         </form>

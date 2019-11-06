@@ -33,7 +33,7 @@ $(function(){
 
                 }else if(data.success){
 
-                    $('.result').html(data.success);
+                   window.location = '/user/dashboard';
                 }
 
             }

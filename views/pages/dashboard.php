@@ -40,7 +40,7 @@
                         <a class="nav-link text-white font-weight-bold rounded" style="background-color: #00ace6;" href="">Mon espace</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/user/logout" class="nav-link sing-out"><i class="fa fa-sign-out" style="font-size: 25px;" aria-hidden="true"></i></a>
+                        <a href="/dashboard/logout" class="nav-link sing-out"><i class="fa fa-sign-out" style="font-size: 25px;" aria-hidden="true"></i></a>
                     </li>
                 </ul>
             </div>
@@ -114,7 +114,8 @@
 
                 <div class="col-10 col-md-8 col-lg-9 w-100">
                     <div class="row">
-                        <?= $_SESSION['first_name'].' '.$_SESSION['last_name']?>
+                        <?= Session::get('first_name').' '.Session::get('last_name')?>
+
                     </div>
                 </div>
             </div>

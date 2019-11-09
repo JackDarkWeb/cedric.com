@@ -66,8 +66,9 @@ $(function(){
 
     $(document).on('keyup', '#email', function () {
 
-        var email = $(this).val();
-        var filter = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        let email = $(this).val();
+        let filter = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        let ajax = true;
 
         if(email === ''){
 
@@ -81,12 +82,12 @@ $(function(){
         }else{
 
             $.ajax({
-                url: 'Utils/checkChronicEmail.php',
+                url: '/',
                 type: 'POST',
                 dataType: 'json',
                 async: true,
                 cache: false,
-                data: {email:email},
+                data: {email:email, ajax:ajax},
                 success:function (data) {
 
                     if(data.email){
@@ -110,10 +111,12 @@ $(function(){
 
     $(document).on('submit', '#formChronic', function () {
 
-    var form = $(this);
-    var first_name =  form.find('#first_name').val();
-    var email = form.find('#email').val();
-    var last_name = form.find('#last_name').val();
+        let form = $(this),
+            first_name =  form.find('#first_name').val(),
+            email = form.find('#email').val(),
+            last_name = form.find('#last_name').val();
+
+        const ajax = true;
 
 
     if (error_first_name === false || error_email === false || error_last_name === false) {
@@ -136,32 +139,30 @@ $(function(){
 
 
         $.ajax({
-            url: 'Utils/sendChronic.php',
+            url: '/home/store',
             type: 'POST',
             dataType: 'json',
-            data:$(this).serialize(),
+            data:{ajax:ajax, email:email, first_name:first_name, last_name:last_name},
             async :true,
             cache: false,
             beforeSend: function () {
                 //$('.process').html('En cours de traitement ....').show();
             },
-            success: function (data) {
+            success:function (response) {
 
-                if(data.errors){
+                if(response.error === false){
 
-                    alert(data.errors);
+                    $('.result').html(response.message);
 
-                }else if(data.success){
-
-                    alert(data.success);
-                    $('#first_name').add('#email, #last_name').val('');
-
-                    //$('.alert-info').html(data.success).show();
-                    //$('.alert-danger').hide();
-
+                }else{
+                    $('.result').html(response.message);
+                    $('#formChronic').find('#last_name,  #email, #first_name').val('');
                 }
-
-            }
+            },
+            error: function (resp, status, error) {
+                $('.result').html(error);
+                //console.log(resp);
+            },
 
         });
         return false;

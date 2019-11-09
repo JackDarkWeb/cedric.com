@@ -13,7 +13,7 @@ abstract class Session
      * @param $value
      */
     static function set($key, $value){
-
+        self::init();
         $_SESSION[$key] = $value;
     }
 
@@ -23,6 +23,7 @@ abstract class Session
      */
     static function get($key){
 
+        self::init();
         if(isset($_SESSION[$key]))
             return $_SESSION[$key];
         else
@@ -36,18 +37,20 @@ abstract class Session
     static function check($key){
 
         self::init();
-
         if(self::get($key) === false) {
-            self::destroy();
+            return false;
         }
         return true;
     }
 
 
-    static function destroy(){
-
+    /**
+     * @param string $redirect
+     */
+    static function destroy($redirect = '/'){
+        self::init();
         session_destroy();
         session_unset();
-        header('Location:/user/singIn');
+        header('Location:'.$redirect);
     }
 }

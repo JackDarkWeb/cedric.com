@@ -5,7 +5,6 @@ class UserController extends Controller
 {
     function index(){
 
-        //dd(sha1('123456789ol'));die();
         return $this->view('pages.singIn');
     }
 
@@ -19,7 +18,6 @@ class UserController extends Controller
             $email    = $this->email('email');
             $password = $this->password('password');
 
-
             if(!empty($email)){
 
                 if(!empty($password)){
@@ -30,17 +28,18 @@ class UserController extends Controller
 
                         if($password === $user->password){
 
-                            session_start();
-                            $_SESSION['email']    = $email;
-                            $_SESSION['first_name'] = $user->first;
-                            $_SESSION['last_name'] = $user->last;
+                            Session::set('email', $email);
+                            Session::set('first_name', $user->first);
+                            Session::set('last_name', $user->last);
+                            Session::set('password', $this->post('password'));
+                            Session::set('remember', $this->remember('remember'));
 
                             if($_POST['ajax'] === 'true'){
 
                                 $this->flash['success'] = true;
 
                             }else
-                                header('Location:/user/dashboard');
+                                header('Location:/dashboard');
 
 
                         }else{
@@ -73,31 +72,19 @@ class UserController extends Controller
                 return $this->view('pages.singIn');
 
         }
-        return $this->view('pages.singIn');
-    }
 
 
-    function dashboard(){
+        if(Cookie::check('email') && Cookie::check('password')){
 
-        session_start();
-
-
-
-        if(isset($_SESSION['email']) && isset($_SESSION['first_name'])){
-
-            $messages = ModelJson::findAll();
-            $count    = ModelJson::count();
-
-
-            //dd($all_messages);
-            return $this->view('pages.dashboard',[
-                'messages' => $messages,
-                'count'    => $count,
-            ]);
-        }else
-            header('Location:/user/singIn');
-
-        die();
+            $email    = Cookie::get('email');
+            $password = Cookie::get('password');
+            $remember = Cookie::get('remember');
+        }
+        return $this->view('pages.singIn',[
+            'email'    => $email,
+            'password' => $password,
+            'remember' => $remember,
+        ]);
     }
 
 
@@ -154,8 +141,4 @@ class UserController extends Controller
     }
 
 
-    function logout(){
-
-        return $this->view('pages.logout');
-    }
 }

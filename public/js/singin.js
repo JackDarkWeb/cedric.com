@@ -5,7 +5,8 @@ $(function(){
 
         let form  = $(this),
             email     = form.find('#email').val(),
-            password  = form.find('#password').val();
+            password  = form.find('#password').val(),
+            remember  = 1;
 
         const ajax = true;
 
@@ -14,7 +15,7 @@ $(function(){
             type: 'POST',
             dataType: 'json',
             cache: false,
-            data:{email:email, password:password, ajax:ajax},
+            data:{email:email, password:password, ajax:ajax, remember:remember},
             async :true,
             beforeSend: function () {
                 $('.process').html('En cours de traitement ....').show();
@@ -33,7 +34,7 @@ $(function(){
 
                 }else if(data.success){
 
-                   window.location = '/user/dashboard';
+                   window.location = '/dashboard';
                 }
 
             }

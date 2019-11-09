@@ -311,12 +311,15 @@ class Validator extends Book
 
     /**
      * @param $name
+     * @return bool
      */
     public function remember($name){
         $value = $this->post($name);
+
         if($value == 1){
-            setcookie('remember', 'true', time() + 3600);
+            return true;
         }
+        return false;
     }
 
     /**

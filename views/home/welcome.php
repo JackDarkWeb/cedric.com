@@ -54,6 +54,9 @@
         </div>
         <div class="">
 
+            <div class="result"></div>
+            <?= ($this->message_flash('message')) ? $this->message_flash('message') : ''?>
+
             <form class="row" method="post" action="" id="formChronic">
                 <div class="form-group col-sm-4 col-10 offset-1 offset-sm-0">
                     <input type="text" name="first_name" id="first_name" placeholder="Votre prenom..." class="form-control">
@@ -69,7 +72,7 @@
                 </div>
 
                 <div class="col-md-4 offset-md-4 col-sm-6 offset-sm-3 col-10 offset-1">
-                    <input type="submit" value="Je reçois" id="sendNewsletters" class="btn btn-info w-100">
+                    <input type="submit" name="submit" value="Je recois" id="sendNewsletters" class="btn btn-info w-100">
                 </div>
             </form>
         </div>

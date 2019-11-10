@@ -25,7 +25,7 @@ class ContactController extends Controller
                 $this->flash['message'] = "<div class='alert alert-success text-center'>Your message has been sent</div>";
             } else {
                 $this->flash['message'] = "<div class='alert alert-danger text-center'>All fields are required</div>";
-                $this->flash['error'] = false;
+                $this->flash['error'] = true;
             }
 
 

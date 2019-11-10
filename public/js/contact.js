@@ -195,7 +195,7 @@ $(function(){
                 data:{first_name:first_name,last_name:last_name,message:message,email:email,company:company,ajax:ajax},
                 success:function (response) {
 
-                    if(response.error === false){
+                    if(response.error === true){
 
                         $('.result').html(response.message);
 

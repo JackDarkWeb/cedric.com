@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94e1ad43-7328-47b8-94d4-a1b02a3c7791" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/Cookie.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Chronic.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Session.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Session.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Validator.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Validator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/setting/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/setting/autoload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/singin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/singin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/home/welcome.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/home/welcome.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/logout.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/singIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/singIn.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +70,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blog" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../babor.com" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
@@ -156,7 +141,10 @@
       <workItem from="1572840638824" duration="4736000" />
       <workItem from="1572867232131" duration="21000" />
       <workItem from="1573048332162" duration="10278000" />
-      <workItem from="1573277797846" duration="12608000" />
+      <workItem from="1573277797846" duration="12799000" />
+      <workItem from="1573305083291" duration="725000" />
+      <workItem from="1573317575054" duration="8191000" />
+      <workItem from="1573366909247" duration="3045000" />
     </task>
     <servers />
   </component>

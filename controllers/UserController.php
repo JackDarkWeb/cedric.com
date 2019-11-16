@@ -73,6 +73,9 @@ class UserController extends Controller
 
         }
 
+        $email = null;
+        $password = null;
+        $remember = null;
 
         if(Cookie::check('email') && Cookie::check('password')){
 

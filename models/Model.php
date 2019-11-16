@@ -6,7 +6,10 @@ abstract class Model extends Db
     private $query,
         $error = false,
         $results,
-        $count = 0;
+        $count = 0,
+        $column,
+        $direction,
+        $orderby;
 
     #The name of the table in the database
     # The name of the table must always be plural
@@ -55,7 +58,7 @@ abstract class Model extends Db
 
     public function builderGet(array $array)
     {
-        return $this->builderAction('SELECT *', $this->table, $array)->results();
+        return $this->builderAction('SELECT *', $this->table, $array);//->results();
     }
 
     /**
@@ -66,6 +69,7 @@ abstract class Model extends Db
     function query($sql, $params = [])
     {
         $this->error = false;
+
         if($this->query = $this->getInstance()->prepare($sql))
         {
             $x = 1;
@@ -78,9 +82,12 @@ abstract class Model extends Db
                 }
             }
         }
+
         if($this->query->execute()){
+
             $this->results = $this->query->fetchAll(PDO::FETCH_OBJ);
             $this->count   = $this->query->rowCount();
+
         }else
         {
             $this->error = true;
@@ -108,7 +115,7 @@ abstract class Model extends Db
 
             if(in_array($operator, $operators)){
 
-                $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ? ";
+                $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?  ";
 
                 if(!$this->query($sql, [$value])->error()){
 
@@ -126,6 +133,8 @@ abstract class Model extends Db
         }
         return false;
     }
+
+   
 
     /**
      * @param array $fields
@@ -166,6 +175,7 @@ abstract class Model extends Db
      */
     private function builderAction($action, $table, $wheres = []){
 
+
         if(count($wheres) === 7){
             $operators = ['=', '!=', '<', '>', '<=', '>=', 'AND', 'OR'];
 
@@ -177,9 +187,10 @@ abstract class Model extends Db
             $value_second    = $wheres[6];
             $logique  = strtoupper($wheres[3]);
 
+
             if(in_array($operator_first, $operators) && in_array($operator_second, $operators) && in_array($logique, $operators)){
 
-                $sql = "{$action} FROM {$table} WHERE {$field_first} {$operator_first} ?  {$logique} {$field_second} {$operator_second} ? ORDER BY created_at DESC";
+                $sql = "{$action} FROM {$table} WHERE {$field_first} {$operator_first} ?  {$logique} {$field_second} {$operator_second} ? ";
 
                 if(!$this->query($sql, [$value_first, $value_second])->error()){
 
@@ -191,7 +202,12 @@ abstract class Model extends Db
     }
 
 
-
+    function orderby($column, $direction){
+        $this->column = $column;
+        $this->direction = $direction;
+        $this->orderby = "ORDER BY {$column} ".strtoupper($direction);
+        return $this;
+    }
 
 
 

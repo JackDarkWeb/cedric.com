@@ -4,6 +4,11 @@
 class Router
 {
     static $routes = [];
+    /**
+     * @var string
+     */
+
+    protected static $default_action = 'welcome';
 
 
     /**
@@ -36,15 +41,12 @@ class Router
         }
 
 
-
-
-
         $params = explode('/', $url);
 
 
         if($params[0] === ""){
             $request->controller = 'home';
-            $request->action = 'welcome';
+            $request->action = self::$default_action;
             $request->params = array();
         }else{
 

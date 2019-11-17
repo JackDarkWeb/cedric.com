@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94e1ad43-7328-47b8-94d4-a1b02a3c7791" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/jackd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/jackd.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Model.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,20 +70,20 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../babor.com" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/core" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\OSPanel\domains\cedric.com\views\pages" />
-      <recent name="D:\OSPanel\domains\cedric.com\core" />
-      <recent name="D:\OSPanel\domains\cedric.com\public\images" />
-      <recent name="D:\OSPanel\domains\cedric.com\views\layouts\pills" />
-      <recent name="D:\OSPanel\domains\cedric.com\views\layouts" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\OSPanel\domains\website-skeleton\core" />
       <recent name="D:\OSPanel\domains\website-skeleton" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\OSPanel\domains\cedric.com\core" />
+      <recent name="D:\OSPanel\domains\cedric.com\views\pages" />
+      <recent name="D:\OSPanel\domains\cedric.com\public\images" />
+      <recent name="D:\OSPanel\domains\cedric.com\views\layouts\pills" />
+      <recent name="D:\OSPanel\domains\cedric.com\views\layouts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -157,7 +152,9 @@
       <workItem from="1573654071605" duration="4831000" />
       <workItem from="1573740001456" duration="3210000" />
       <workItem from="1573805196662" duration="1981000" />
-      <workItem from="1573913710252" duration="495000" />
+      <workItem from="1573913710252" duration="2366000" />
+      <workItem from="1573972422784" duration="4482000" />
+      <workItem from="1574009176065" duration="1121000" />
     </task>
     <servers />
   </component>

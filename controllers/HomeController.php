@@ -6,8 +6,7 @@ class HomeController extends Controller
     function welcome(){
 
         $chronic = new Chronic();
-        $test = $chronic->builderGet(['id', '=', 1, 'AND', 'email', '=', 'jack@yahoo.fr'])->orderby('id', 'desc');
-        dd($test);
+
         $err = [];
         if($_POST['ajax'] === 'true' || isset($_POST['submit'])){
 
